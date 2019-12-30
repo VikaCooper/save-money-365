@@ -1,15 +1,18 @@
-<!--index.wxml-->
-<view class="container">
-  <view class="userinfo">
-    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
-    <block wx:else>
-      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
-      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
-    </block>
+<view class="index-page">
+  <text class="index-page__title">从1到365中任选一个数字，不可重复，存取对应的money~~</text>
+  <view class="index-page__progress">
+    <van-circle
+      value="{{50}}"
+      size="{{120}}"
+      color="#1abc9c"
+      stroke-width="{{8}}"
+      text="当前进度"
+    >
+      <!-- <view slot="default">当前进度</view> -->
+    </van-circle>
   </view>
-  <button>请点击我</button>
-  <view class="usermotto">
-  <label>陈吴家唯最帅</label>
-    <!-- <text class="user-motto">{{motto}}</text> -->
+  <view class="days">
+    <van-button wx:for="{{365}}" custom-class="days-btn">{{item}}</van-button>
   </view>
 </view>
+
